@@ -11,5 +11,8 @@
   "type": "module",
   "devDependencies": {
     "vitepress": "^1.6.3"
+  },
+  "dependencies": {
+    "cs_knowledge_base": "file:"
   }
 }
