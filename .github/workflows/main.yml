@@ -33,24 +33,24 @@ jobs:
       - name: Check out CSKB_Hosting
         uses: actions/checkout@v4.1.1
         with:
-          repository: 'Corona-Studio/CSKB_Hosting'
+          repository: 'fr1g/CSKB_Hosting'
           path: 'CSKB_Hosting'
 
       - name: Remove cloned docs
         run: |
-          rm -rf CSKB_Hosting/docs
+          echo "not implemented"
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4.1.1
         with:
-          path: 'CSKB_Hosting/docs'
+          path: 'fr1g/docs'
 
       - name: Install Deps
         run: |
           cd CSKB_Hosting
-          yarn install
+          npm install
 
       - name: Build
         run: |
           cd CSKB_Hosting
-          yarn run docs:build
+          npm run docs:build
