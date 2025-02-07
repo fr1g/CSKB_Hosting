@@ -34,15 +34,21 @@ export default {
         // router is VitePress' custom router. `siteData` is
         // a `ref` of current site-level metadata.
 
-        deployObserver(document.getElementById("app"), () => {
-            let analyse = document.querySelectorAll("p>code");
-            for(let codes of analyse){
-                if(codes.parentElement.lastChild.nodeName == "#text") 
-                    continue;
-                codes.parentElement.classList.add("no-indent");
-                codes.classList.add("hidden");
-            }
-        }, true);
+        let install = function(){
+            deployObserver(document.getElementById("app"), () => {
+                let analyse = document.querySelectorAll("p>code");
+                for(let codes of analyse){
+                    if(codes.parentElement.lastChild.nodeName == "#text") 
+                        continue;
+                    codes.parentElement.classList.add("no-indent");
+                    codes.classList.add("hidden");
+                }
+            }, true);
+        }
+
+        if (!import.meta.env.SSR)
+            app.use({install})
+
     },
 
     setup() {
