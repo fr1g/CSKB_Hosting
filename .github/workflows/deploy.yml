@@ -19,10 +19,10 @@ jobs:
         with:
           node-version: 20
           cache: yarn
-      - run: npm install --frozen-lockfile
+      - run: npm install
 
       - name: Build
-        run: npm docs:build
+        run: npm run docs:build
         
       - name: Create File
         uses: finnp/create-file-action@2.0.0
