@@ -22,7 +22,7 @@ jobs:
       - run: yarn install --frozen-lockfile
 
       - name: Build
-        run: yarn docs:build
+        run: npm docs:build
         
       - name: Create File
         uses: finnp/create-file-action@2.0.0
